@@ -1,0 +1,15 @@
+E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/rectangle_sim/rectangle.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/rectangle_sim/rectangle.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module rectangle
+
+Top level modules:
+	rectangle
+
+} {} {}} E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/rectangle_sim/rectangle_TB.v {1 {vlog -work work -stats=none {E:\quartus_prj\EXP_code\digital_recognition_of_fpga\recognition\verilog\rectangle_sim\rectangle_TB.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module rectangle_TB
+
+Top level modules:
+	rectangle_TB
+
+} {} {}}

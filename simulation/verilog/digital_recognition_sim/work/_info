@@ -1,0 +1,53 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/rectangle_sim
+vdigital_recognition
+Z0 !s110 1528376721
+!i10b 1
+!s100 Dz;V5b2[oCjhRlf<Aj>G?1
+IJWZ;^30M;0S7KH=hkUPLC2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim
+w1528297668
+8E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition.v
+FE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1528376721.000000
+!s107 E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vdigital_recognition_TB
+R0
+!i10b 1
+!s100 dJg6c[^=Ph:N1:YJOB`z;2
+I1oIobzfQ^8:3FF4N_M[4;3
+R1
+R2
+w1528350031
+8E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition_TB.v
+FE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition_TB.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/digital_recognition_sim/digital_recognition_TB.v|
+!i113 1
+R5
+R6
+ndigital_recognition_@t@b

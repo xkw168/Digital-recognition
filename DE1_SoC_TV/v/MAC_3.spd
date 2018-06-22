@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="MAC_3_sim/MAC_3.v" type="VERILOG" />
+ <topLevel name="MAC_3" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

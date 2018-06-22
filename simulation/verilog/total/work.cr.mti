@@ -1,0 +1,57 @@
+E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/edge_detection.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/edge_detection.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module edge_detection
+
+Top level modules:
+	edge_detection
+
+} {} {}} E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/total/total_TB.v {1 {vlog -work work -stats=none {E:\quartus_prj\EXP_code\digital_recognition_of_fpga\recognition\verilog\total\total_TB.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module total_TB
+
+Top level modules:
+	total_TB
+
+} {} {}} E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/total/rectangle.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/total/rectangle.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module rectangle
+
+Top level modules:
+	rectangle
+
+} {} {}} E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/total/digital_recognition.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/total/digital_recognition.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module digital_recognition
+
+Top level modules:
+	digital_recognition
+
+} {} {}} E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/total_TB.v {1 {vlog -work work -stats=none {E:\quartus_prj\EXP_code\digital_rcognition\recognition\verilog\total\total_TB.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module total_TB
+
+Top level modules:
+	total_TB
+
+} {} {}} E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/rectangle.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/rectangle.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module rectangle
+
+Top level modules:
+	rectangle
+
+} {} {}} E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/total/edge_detection.v {1 {vlog -work work -stats=none {E:\quartus_prj\EXP_code\digital_recognition_of_fpga\recognition\verilog\total\edge_detection.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module edge_detection
+
+Top level modules:
+	edge_detection
+
+} {} {}} E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/digital_recognition.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/digital_recognition.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module digital_recognition
+
+Top level modules:
+	digital_recognition
+
+} {} {}}

@@ -1,0 +1,172 @@
+module img_process(
+                     oRed,
+							oGreen,
+							oBlue,
+			
+iVGA_X,
+iVGA_Y,
+iVGA_CLK,
+							iRed,
+							iGreen,
+							iBlue,
+							VGA_Read,
+							SW,
+							CLK,
+							RST);
+
+
+output  [9:0]  oRed;
+output  [9:0]  oGreen;
+output  [9:0]  oBlue;
+
+input [9:0] iRed;
+
+input [9:0] iGreen;
+input [9:0] iBlue;
+							
+input [10:0] iVGA_X;
+input [10:0] iVGA_Y;
+input iVGA_CLK;
+							
+							
+							
+input  [9:0]  SW;
+input CLK,RST,VGA_Read;
+
+
+
+wire [9:0] mRed;
+wire [9:0] mGreen;
+wire [9:0] mBlue;
+
+wire [9:0] VGA_R_in;
+wire [9:0] VGA_G_in;
+wire [9:0] VGA_B_in;
+
+reg [29:0] VGA_DATA ;
+
+//选择图像来源（摄像头 or RAM）
+assign mRed =   SW[8] ? pRed:iRed;
+assign mGreen = SW[8] ? pGreen:iGreen;
+assign mBlue =  SW[8] ? pBlue:iBlue;
+//将读取的数据分为RGB三个分量
+assign oRed = VGA_DATA[9:0] ;
+assign oGreen = VGA_DATA[19:10];
+assign oBlue = VGA_DATA[29:20] ;
+
+wire [9:0] tGREY;
+wire [9:0] GREY2BW ;
+
+wire Sobel_Read,VGA_CTRL_CLK,DLY_RST_2;
+
+wire [9:0] pRed;
+wire [9:0] pGreen;
+wire [9:0] pBlue;
+
+//地址生成逻辑
+reg [8:0]row, col;
+wire [16:0]address;
+wire hscan, vscan, enable;
+
+assign hscan = ((edgeDetected[0] == 1'b0) ? 1'b1 : 1'b0;)
+assign vscan = (edgeDetected[0] == 1'b1) ? 1'b1 : 1'b0;
+assign enable = (edgeDetected == 2'b11) ? 1'b0 : 1'b1;
+
+always @(posedge CLK, negedge RST) 
+begin
+  if(!RST) 
+  begin
+    row = 8'b0;
+	col = 8'b0;
+  end
+  else if (VGA_X==11'b0 && VGA_Y==11'b0)
+  begin
+    row = 8'b0;
+	col = 8'b0;
+  end
+  else if(hscan && (VGA_Read ==1'b1))//行扫描且VGA读数据
+  begin
+    col = col + 1'b1;
+	if(col > 319)
+	begin
+	  col = 1'b0;
+	  row = (row < 240) ? (row + 1'b1) : 1'b0;
+	end
+  end
+  else if(vscan && (VGA_Read ==1'b1))//列扫描且VGA读数据
+  begin
+    row = row + 1'b1;
+	if(row > 239)
+	begin
+	  row = 1'b0;
+	  col = (row < 360) ? (col + 1'b1) : 1'b0;
+	end
+  end
+end
+assign address = row * 320 + col;//320*240屏幕
+
+//时钟取反（上升沿地址变化，下降沿取数据）
+assign VGA_CTRL_CLK = ~CLK;
+
+img_src_xkw dut_img_src(
+.oRed(pRed),
+.oGreen(pGreen),
+.oBlue(pBlue),							
+.VGA_CTRL_CLK(VGA_CTRL_CLK),
+.DLY_RST_2(DLY_RST_2),
+.ADDR(address),
+);
+
+edge_detection edge_detection_inst
+(
+	.clk(CLK) ,	// input  clk_sig
+	.rst(RST) ,	// input  rst_sig
+	.en(enable) ,	// input  en_sig
+	.iRow(row) ,	// input [8:0] iRow_sig
+	.iCol(col) ,	// input [8:0] iCol_sig
+	.iHscan(hscan) ,	// input  iHscan_sig
+	.iVscan(vscan) ,	// input  iVscan_sig
+	.dataBW(GREY2BW) ,	// input [9:0] dataBW_sig
+	.oRow(oRow_sig) ,	// output [17:0] oRow_sig
+	.oCol(oCol_sig) ,	// output [17:0] oCol_sig
+	.ofinish(edgeDetected) 	// output [1:0] ofinish_sig
+);
+
+//彩色图像转灰度图
+RGB2GREY DUT_GREY (mRed,mGreen,mBlue,tGREY);
+//灰度图转二值图
+assign GREY2BW = (tGREY > 8'b0111_1111) ? 10'b11_1111_1111 : 10'b0 ; 
+
+
+wire [9:0] Sobel_Out;
+wire [9:0] filter_in;
+wire [9:0]  Sobel_In;
+
+wire wDAL_sobel,wDAL_2_sobel,wDAL_3_sobel;
+
+
+assign DLY_RST_2 = RST;
+
+assign filter_in = tGREY;
+assign Sobel_Read = VGA_Read;
+
+
+
+always @ (SW[3:0])
+begin
+   case(SW[3:0])
+   4'b0000:VGA_DATA = {mBlue,mGreen,mRed};
+   4'b0001:VGA_DATA = 30'b11_1111_1111_11_1111_1111_11_1111_1111;
+   4'b0010:VGA_DATA = 30'h0;
+   4'b0011:VGA_DATA = {GREY2BW,GREY2BW,GREY2BW};
+   4'b0111:VGA_DATA = {tGREY,tGREY,tGREY};
+   //4'b1111:VGA_DATA = {Sobel_In,Sobel_In,Sobel_In};
+   //4'b1110:VGA_DATA = {Sobel_Out,Sobel_Out,Sobel_Out};//filter
+   //4'b1100:VGA_DATA = {Sobel_2_Out,Sobel_2_Out,Sobel_2_Out};//BW
+   //4'b1000:VGA_DATA = {Sobel_3_Out,Sobel_3_Out ,Sobel_3_Out};//GERY
+ default:VGA_DATA = 30'b11_1111_1111_11_1111_1111_11_1111_1111;
+	endcase
+end
+
+
+endmodule

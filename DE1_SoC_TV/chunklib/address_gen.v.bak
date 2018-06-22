@@ -1,0 +1,25 @@
+module address_gen (iRST_N,iCLK,oADDRESS,iEND_ADDRESS);
+input iRST_N,iCLK;
+output oADDRESS;
+
+//parameter END_ADDRESS = 20'hFFFFF;
+parameter WIDE =  23 ;
+input [WIDE -1 : 0] iEND_ADDRESS;
+
+reg [WIDE-1:0 ]addr_cnt ;
+
+//////////	 ADDRESS Generator	//////////////
+always@(negedge iCLK or negedge iRST_N)
+parameter  ONE = 23'b1;
+parameter ZERO = 23'b0;
+begin
+	if(!iRST_N)
+	addr_cnt	<=	ZERO;
+	else
+	begin
+		if(WAV_Count < iEND_ADDRESS )
+		addr_cnt	<=	WAV_Count+ ONE
+		else
+		addr_cnt	<=	ZERO;
+	end
+end

@@ -1,0 +1,28 @@
+
+
+D:/SVN/de1_soc/cd/de1_soc_tv/Sdram_Control_4Port/Sdram_PLL.v
+
+Dec 03 10AM:39:46>: Error in CNX file format.
+
+Error messages are listed in file
+D:/SVN/de1_soc/cd/de1_soc_tv/Sdram_Control_4Port/Sdram_PLL.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+D:/SVN/de1_soc/cd/de1_soc_tv/Sdram_Control_4Port/Sdram_PLL.v
+
+Dec 03 10AM:39:53>: Error in CNX file format.
+
+Error messages are listed in file
+D:/SVN/de1_soc/cd/de1_soc_tv/Sdram_Control_4Port/Sdram_PLL.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+D:/SVN/de1_soc/cd/de1_soc_tv/Sdram_Control_4Port/Sdram_PLL.v
+
+Dec 03 10AM:39:59>: Error in CNX file format.
+
+Error messages are listed in file
+D:/SVN/de1_soc/cd/de1_soc_tv/Sdram_Control_4Port/Sdram_PLL.cnxerr.
+
+Can't create the custom megafunction variation file(s)

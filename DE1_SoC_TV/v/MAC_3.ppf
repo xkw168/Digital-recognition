@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pinplan
+ variation_name="MAC_3"
+ megafunction_name="ALTERA_MULT_ADD"
+ intended_family="Cyclone V"
+ specifies="all_ports">
+ <global>
+  <pin name="result[26..0]" direction="output" scope="external" />
+  <pin name="dataa_0[7..0]" direction="input" scope="external" />
+  <pin name="dataa_1[7..0]" direction="input" scope="external" />
+  <pin name="dataa_2[7..0]" direction="input" scope="external" />
+  <pin name="datab_0[16..0]" direction="input" scope="external" />
+  <pin name="datab_1[16..0]" direction="input" scope="external" />
+  <pin name="datab_2[16..0]" direction="input" scope="external" />
+  <pin name="clock0" direction="input" scope="external" />
+  <pin name="aclr0" direction="input" scope="external" />
+ </global>
+</pinplan>

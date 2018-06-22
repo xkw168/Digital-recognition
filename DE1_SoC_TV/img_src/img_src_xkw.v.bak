@@ -1,0 +1,46 @@
+module img_src(
+oRed,
+oGreen,
+oBlue,							
+VGA_CTRL_CLK,
+DLY_RST_2,
+ADDR,
+);
+
+// 33.7khz 64.2hz   720*480 
+input VGA_CTRL_CLK,DLY_RST_2,SEL;
+input [16:0] ADDR;
+
+
+output  [9:0]  oRed;
+output  [9:0]  oGreen;
+output  [9:0]  oBlue;
+
+wire  BWDATA;
+wire [23:0] bgr_data_raw;
+
+assign oRed = {bgr_data_raw[23:16],2'b0 } ;
+assign oGreen = {bgr_data_raw[15:8],2'b0 } ;
+assign oBlue = {bgr_data_raw[7:0],2'b0 } ;
+
+
+//Addresss generator
+`ifdef VGA_640x480p60 
+parameter pix_stop = 640*480;
+parameter Line_stop = 640;
+`else
+parameter pix_stop = 800*600;
+parameter Line_stop = 800;
+
+
+`endif
+
+img_data	img_data_dut (
+	.address ( ADDR ),
+	.clock ( VGA_CLK_n ),
+	.q ( bgr_data_raw )
+	);
+	
+endmodule
+
+

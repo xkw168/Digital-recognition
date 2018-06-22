@@ -1,0 +1,10 @@
+module RGB2GREY(iR,iG,iB,oGREY);
+input [9:0] iR;
+input [9:0] iG;
+input [9:0] iB;
+output [9:0] oGREY;
+reg  [19:0] tDATA;
+always @(*)
+begin
+tDATA = (0.299*mVGA_R +0.587*mVGA_G  +0.114*mVGA_B)
+end

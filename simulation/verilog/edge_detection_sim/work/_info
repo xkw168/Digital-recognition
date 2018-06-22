@@ -1,0 +1,53 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/17.1/modelsim_ase/win32aloem
+vedge_detection
+Z0 !s110 1528637779
+!i10b 1
+!s100 41gF@BXC4W:`BVWAbjdz61
+Ici`;>nBLD=5T`0AocRNIU0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim
+w1528637431
+8E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection.v
+FE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection.v
+L0 5
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1528637779.000000
+!s107 E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vedge_detection_TB
+R0
+!i10b 1
+!s100 ]j24=Z]cYA:1EN<HM1<=h1
+IL=LUA@;Am2cnRddTa3b>C3
+R1
+R2
+w1528622070
+8E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection_TB.v
+FE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection_TB.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection_TB.v|
+!i113 1
+R5
+R6
+nedge_detection_@t@b

@@ -1,0 +1,8 @@
+module digital_recognition(
+oRed,
+oGreen,
+oBlue,							
+VGA_CTRL_CLK,
+DLY_RST_2,
+ADDR,
+);

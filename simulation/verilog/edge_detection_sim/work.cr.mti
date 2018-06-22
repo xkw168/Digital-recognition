@@ -1,0 +1,15 @@
+E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module edge_detection
+
+Top level modules:
+	edge_detection
+
+} {} {}} E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection_TB.v {1 {vlog -work work -stats=none E:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/edge_detection_sim/edge_detection_TB.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module edge_detection_TB
+
+Top level modules:
+	edge_detection_TB
+
+} {} {}}

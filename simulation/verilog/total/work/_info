@@ -1,0 +1,95 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dE:/quartus_prj/EXP_code/digital_recognition_of_fpga/recognition/verilog/rectangle_sim
+vdigital_recognition
+Z0 !s110 1528974477
+!i10b 1
+!s100 `NVmjX9WDHlzh1HT6;MVV0
+IAWc<Gbk7d44Y>45;CjF]21
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dE:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total
+w1528629300
+8E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/digital_recognition.v
+FE:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/digital_recognition.v
+L0 5
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1528974477.000000
+!s107 E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/digital_recognition.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/digital_recognition.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vedge_detection
+R0
+!i10b 1
+!s100 HGgAG3MUK7F0a51a[;[5B3
+IMXb:KN^KDiK@000>g5>Sa1
+R1
+R2
+w1528686464
+8E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/edge_detection.v
+FE:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/edge_detection.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/edge_detection.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/edge_detection.v|
+!i113 1
+R5
+R6
+vrectangle
+R0
+!i10b 1
+!s100 E<:V91PJEW@?KSo0YMNnB0
+ITmQ4ZYEk21dV71GT?OMkc3
+R1
+R2
+w1528630937
+8E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/rectangle.v
+FE:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/rectangle.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/rectangle.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/quartus_prj/EXP_code/digital_rcognition/recognition/verilog/total/rectangle.v|
+!i113 1
+R5
+R6
+vtotal_TB
+R0
+!i10b 1
+!s100 PAP3AEV[nVEM;0SODJ`_N3
+Ii6eU`fY?zldFU3bF19PUb0
+R1
+R2
+w1528974473
+8E:\quartus_prj\EXP_code\digital_rcognition\recognition\verilog\total\total_TB.v
+FE:\quartus_prj\EXP_code\digital_rcognition\recognition\verilog\total\total_TB.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:\quartus_prj\EXP_code\digital_rcognition\recognition\verilog\total\total_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:\quartus_prj\EXP_code\digital_rcognition\recognition\verilog\total\total_TB.v|
+!i113 1
+R5
+R6
+ntotal_@t@b

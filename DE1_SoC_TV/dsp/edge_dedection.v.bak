@@ -1,0 +1,33 @@
+module edge_detection(
+     clk,
+	 rst,
+	 iRow,
+	 iCol,
+	 dataBW,
+	 oRow,
+	 oCol,
+	 ofinish
+);
+
+input clk;//时钟信号
+input rst;//复位信号
+input [9:0]dataBW;//输入的二值图像数据
+output [17:0]oRow;//低9位表示上边界的行数，高9位表示下边界的行数
+output [17:0]oCol;//低9位表示左边界的列数，高9位表示右边界的列数
+output [1:0]ofinish;//低位用于表示上下边界是否确定，高位用于表示左右边界是否确定
+
+
+//每个时钟上升沿送入一个二值图像数据
+always@(posedge clk)
+begin
+  if (!rst)
+  {
+    oRow <= 18'b0;
+	oCol <= 18'b0;
+  }
+  else if (dataBW == 10'b11_1111_1111)//白色
+    ADDR<= 19'd0 ;
+  else if (dataBW == 10'b0)//黑色
+    ADDR<= ADDR +19'd1;
+		
+end

@@ -1,0 +1,68 @@
+module rectangle(
+clk,
+rst,
+RomData,
+up,
+down,
+left,
+right,
+GRAY2BW,
+oBWrgb,
+);
+
+input clk;
+input rst;
+input [8:0] up;
+input [8:0] down;
+input [7:0] left;
+input [7:0] right;
+input [16:0] RomData; 
+
+input hscan;
+input vscan;
+input [9:0] GRAY2BW;
+
+output [9:0] oBWrgb;
+
+wire [16:0] leftup;
+wire [16:0] rightdown;
+wire [16:0] leftdown;
+wire [16:0] rightup;
+
+reg [8:0] updown;
+reg flag;
+ 
+ 
+assign leftup = up * 320 + left;           //左上角地址位
+assign leftdown = down * 320 + left;       //左下角地址位
+assign rightdown = down * 320 + right;     //右下角地址位
+assign rightup = up * 320 + right;         //右上角地址位
+
+
+always @(posedge clk)
+begin
+	if(!rst) 
+		begin
+			updown <= down - up ;
+			flag <= 0;
+		end
+		if (( RomData >= leftup && RomData <= rightup)||           //上界限的操作
+			( RomData-320 >= leftup && RomData-320 <= rightup)||
+			( RomData+320 >= leftup && RomData+320 <= rightup))
+			begin
+				oBWrgb <= 10'd0;
+			end
+		else if (( RomData >= leftdown && RomData <= rightdown)||   //下界限的操作
+			( RomData-320 >= leftdown && RomData-320 <= rightdown)||
+			( RomData+320 >= leftdown && RomData+320 <= rightdown))
+			begin
+				oBWrgb <= 10'd0;
+			end
+		else                                                     //其他部分的操作				
+			begin
+				oBWrgb = GRAY2BW ;
+			end
+end
+
+
+endmodule

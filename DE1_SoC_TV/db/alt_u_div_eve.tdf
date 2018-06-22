@@ -1,0 +1,112 @@
+--alt_u_div DEVICE_FAMILY="Cyclone V" LPM_PIPELINE=0 MAXIMIZE_SPEED=5 SKIP_BITS=0 WIDTH_D=3 WIDTH_N=11 WIDTH_Q=11 WIDTH_R=3 denominator numerator quotient remainder
+--VERSION_BEGIN 17.1 cbx_cycloneii 2017:10:25:18:06:53:SJ cbx_lpm_abs 2017:10:25:18:06:53:SJ cbx_lpm_add_sub 2017:10:25:18:06:53:SJ cbx_lpm_divide 2017:10:25:18:06:53:SJ cbx_mgl 2017:10:25:18:08:29:SJ cbx_nadder 2017:10:25:18:06:53:SJ cbx_stratix 2017:10:25:18:06:53:SJ cbx_stratixii 2017:10:25:18:06:53:SJ cbx_util_mgl 2017:10:25:18:06:53:SJ  VERSION_END
+
+
+-- Copyright (C) 2017  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details.
+
+
+FUNCTION add_sub_qhc (dataa[1..0], datab[1..0])
+RETURNS ( cout, result[1..0]);
+FUNCTION add_sub_shc (dataa[3..0], datab[3..0])
+RETURNS ( cout, result[3..0]);
+
+--synthesis_resources = lut 6 
+SUBDESIGN alt_u_div_eve
+( 
+	denominator[2..0]	:	input;
+	numerator[10..0]	:	input;
+	quotient[10..0]	:	output;
+	remainder[2..0]	:	output;
+) 
+VARIABLE
+	add_sub_0_result_int[1..0]	:	WIRE;
+	add_sub_0_cout	:	WIRE;
+	add_sub_0_dataa[0..0]	:	WIRE;
+	add_sub_0_datab[0..0]	:	WIRE;
+	add_sub_0_result[0..0]	:	WIRE;
+	add_sub_1 : add_sub_qhc;
+	add_sub_10 : add_sub_shc;
+	add_sub_2_result_int[3..0]	:	WIRE;
+	add_sub_2_cout	:	WIRE;
+	add_sub_2_dataa[2..0]	:	WIRE;
+	add_sub_2_datab[2..0]	:	WIRE;
+	add_sub_2_result[2..0]	:	WIRE;
+	add_sub_3 : add_sub_shc;
+	add_sub_4 : add_sub_shc;
+	add_sub_5 : add_sub_shc;
+	add_sub_6 : add_sub_shc;
+	add_sub_7 : add_sub_shc;
+	add_sub_8 : add_sub_shc;
+	add_sub_9 : add_sub_shc;
+	DenominatorIn[47..0]	: WIRE;
+	DenominatorIn_tmp[47..0]	: WIRE;
+	gnd_wire	: WIRE;
+	nose[131..0]	: WIRE;
+	NumeratorIn[131..0]	: WIRE;
+	NumeratorIn_tmp[131..0]	: WIRE;
+	prestg[43..0]	: WIRE;
+	quotient_tmp[10..0]	: WIRE;
+	sel[35..0]	: WIRE;
+	selnose[131..0]	: WIRE;
+	StageIn[47..0]	: WIRE;
+	StageIn_tmp[47..0]	: WIRE;
+	StageOut[43..0]	: WIRE;
+
+BEGIN 
+	add_sub_0_result_int[] = (0, add_sub_0_dataa[]) - (0, add_sub_0_datab[]);
+	add_sub_0_result[] = add_sub_0_result_int[0..0];
+	add_sub_0_cout = !add_sub_0_result_int[1];
+	add_sub_0_dataa[] = NumeratorIn[10..10];
+	add_sub_0_datab[] = DenominatorIn[0..0];
+	add_sub_1.dataa[] = ( StageIn[4..4], NumeratorIn[20..20]);
+	add_sub_1.datab[1..0] = DenominatorIn[5..4];
+	add_sub_10.dataa[] = ( StageIn[42..40], NumeratorIn[110..110]);
+	add_sub_10.datab[3..0] = DenominatorIn[43..40];
+	add_sub_2_result_int[] = (0, add_sub_2_dataa[]) - (0, add_sub_2_datab[]);
+	add_sub_2_result[] = add_sub_2_result_int[2..0];
+	add_sub_2_cout = !add_sub_2_result_int[3];
+	add_sub_2_dataa[] = ( StageIn[9..8], NumeratorIn[30..30]);
+	add_sub_2_datab[] = DenominatorIn[10..8];
+	add_sub_3.dataa[] = ( StageIn[14..12], NumeratorIn[40..40]);
+	add_sub_3.datab[3..0] = DenominatorIn[15..12];
+	add_sub_4.dataa[] = ( StageIn[18..16], NumeratorIn[50..50]);
+	add_sub_4.datab[3..0] = DenominatorIn[19..16];
+	add_sub_5.dataa[] = ( StageIn[22..20], NumeratorIn[60..60]);
+	add_sub_5.datab[3..0] = DenominatorIn[23..20];
+	add_sub_6.dataa[] = ( StageIn[26..24], NumeratorIn[70..70]);
+	add_sub_6.datab[3..0] = DenominatorIn[27..24];
+	add_sub_7.dataa[] = ( StageIn[30..28], NumeratorIn[80..80]);
+	add_sub_7.datab[3..0] = DenominatorIn[31..28];
+	add_sub_8.dataa[] = ( StageIn[34..32], NumeratorIn[90..90]);
+	add_sub_8.datab[3..0] = DenominatorIn[35..32];
+	add_sub_9.dataa[] = ( StageIn[38..36], NumeratorIn[100..100]);
+	add_sub_9.datab[3..0] = DenominatorIn[39..36];
+	DenominatorIn[] = DenominatorIn_tmp[];
+	DenominatorIn_tmp[] = ( DenominatorIn[43..0], ( gnd_wire, denominator[]));
+	gnd_wire = B"0";
+	nose[] = ( B"00000000000", add_sub_10.cout, B"00000000000", add_sub_9.cout, B"00000000000", add_sub_8.cout, B"00000000000", add_sub_7.cout, B"00000000000", add_sub_6.cout, B"00000000000", add_sub_5.cout, B"00000000000", add_sub_4.cout, B"00000000000", add_sub_3.cout, B"00000000000", add_sub_2_cout, B"00000000000", add_sub_1.cout, B"00000000000", add_sub_0_cout);
+	NumeratorIn[] = NumeratorIn_tmp[];
+	NumeratorIn_tmp[] = ( NumeratorIn[120..0], numerator[]);
+	prestg[] = ( add_sub_10.result[], add_sub_9.result[], add_sub_8.result[], add_sub_7.result[], add_sub_6.result[], add_sub_5.result[], add_sub_4.result[], add_sub_3.result[], GND, add_sub_2_result[], B"00", add_sub_1.result[], B"000", add_sub_0_result[]);
+	quotient[] = quotient_tmp[];
+	quotient_tmp[] = ( (! selnose[0..0]), (! selnose[12..12]), (! selnose[24..24]), (! selnose[36..36]), (! selnose[48..48]), (! selnose[60..60]), (! selnose[72..72]), (! selnose[84..84]), (! selnose[96..96]), (! selnose[108..108]), (! selnose[120..120]));
+	remainder[2..0] = StageIn[46..44];
+	sel[] = ( gnd_wire, (sel[35..35] # DenominatorIn[46..46]), (sel[34..34] # DenominatorIn[45..45]), gnd_wire, (sel[32..32] # DenominatorIn[42..42]), (sel[31..31] # DenominatorIn[41..41]), gnd_wire, (sel[29..29] # DenominatorIn[38..38]), (sel[28..28] # DenominatorIn[37..37]), gnd_wire, (sel[26..26] # DenominatorIn[34..34]), (sel[25..25] # DenominatorIn[33..33]), gnd_wire, (sel[23..23] # DenominatorIn[30..30]), (sel[22..22] # DenominatorIn[29..29]), gnd_wire, (sel[20..20] # DenominatorIn[26..26]), (sel[19..19] # DenominatorIn[25..25]), gnd_wire, (sel[17..17] # DenominatorIn[22..22]), (sel[16..16] # DenominatorIn[21..21]), gnd_wire, (sel[14..14] # DenominatorIn[18..18]), (sel[13..13] # DenominatorIn[17..17]), gnd_wire, (sel[11..11] # DenominatorIn[14..14]), (sel[10..10] # DenominatorIn[13..13]), gnd_wire, (sel[8..8] # DenominatorIn[10..10]), (sel[7..7] # DenominatorIn[9..9]), gnd_wire, (sel[5..5] # DenominatorIn[6..6]), (sel[4..4] # DenominatorIn[5..5]), gnd_wire, (sel[2..2] # DenominatorIn[2..2]), (sel[1..1] # DenominatorIn[1..1]));
+	selnose[] = ( (! nose[131..131]), (! nose[130..130]), (! nose[129..129]), (! nose[128..128]), (! nose[127..127]), (! nose[126..126]), (! nose[125..125]), (! nose[124..124]), ((! nose[123..123]) # sel[35..35]), ((! nose[122..122]) # sel[34..34]), ((! nose[121..121]) # sel[33..33]), (! nose[120..120]), (! nose[119..119]), (! nose[118..118]), (! nose[117..117]), (! nose[116..116]), (! nose[115..115]), (! nose[114..114]), (! nose[113..113]), ((! nose[112..112]) # sel[32..32]), ((! nose[111..111]) # sel[31..31]), ((! nose[110..110]) # sel[30..30]), (! nose[109..109]), (! nose[108..108]), (! nose[107..107]), (! nose[106..106]), (! nose[105..105]), (! nose[104..104]), (! nose[103..103]), (! nose[102..102]), ((! nose[101..101]) # sel[29..29]), ((! nose[100..100]) # sel[28..28]), ((! nose[99..99]) # sel[27..27]), (! nose[98..98]), (! nose[97..97]), (! nose[96..96]), (! nose[95..95]), (! nose[94..94]), (! nose[93..93]), (! nose[92..92]), (! nose[91..91]), ((! nose[90..90]) # sel[26..26]), ((! nose[89..89]) # sel[25..25]), ((! nose[88..88]) # sel[24..24]), (! nose[87..87]), (! nose[86..86]), (! nose[85..85]), (! nose[84..84]), (! nose[83..83]), (! nose[82..82]), (! nose[81..81]), (! nose[80..80]), ((! nose[79..79]) # sel[23..23]), ((! nose[78..78]) # sel[22..22]), ((! nose[77..77]) # sel[21..21]), (! nose[76..76]), (! nose[75..75]), (! nose[74..74]), (! nose[73..73]), (! nose[72..72]), (! nose[71..71]), (! nose[70..70]), (! nose[69..69]), ((! nose[68..68]) # sel[20..20]), ((! nose[67..67]) # sel[19..19]), ((! nose[66..66]) # sel[18..18]), (! nose[65..65]), (! nose[64..64]), (! nose[63..63]), (! nose[62..62]), (! nose[61..61]), (! nose[60..60]), (! nose[59..59]), (! nose[58..58]), ((! nose[57..57]) # sel[17..17]), ((! nose[56..56]) # sel[16..16]), ((! nose[55..55]) # sel[15..15]), (! nose[54..54]), (! nose[53..53]), (! nose[52..52]), (! nose[51..51]), (! nose[50..50]), (! nose[49..49]), (! nose[48..48]), (! nose[47..47]), ((! nose[46..46]) # sel[14..14]), ((! nose[45..45]) # sel[13..13]), ((! nose[44..44]) # sel[12..12]), (! nose[43..43]), (! nose[42..42]), (! nose[41..41]), (! nose[40..40]), (! nose[39..39]), (! nose[38..38]), (! nose[37..37]), (! nose[36..36]), ((! nose[35..35]) # sel[11..11]), ((! nose[34..34]) # sel[10..10]), ((! nose[33..33]) # sel[9..9]), (! nose[32..32]), (! nose[31..31]), (! nose[30..30]), (! nose[29..29]), (! nose[28..28]), (! nose[27..27]), (! nose[26..26]), (! nose[25..25]), ((! nose[24..24]) # sel[8..8]), ((! nose[23..23]) # sel[7..7]), ((! nose[22..22]) # sel[6..6]), (! nose[21..21]), (! nose[20..20]), (! nose[19..19]), (! nose[18..18]), (! nose[17..17]), (! nose[16..16]), (! nose[15..15]), (! nose[14..14]), ((! nose[13..13]) # sel[5..5]), ((! nose[12..12]) # sel[4..4]), ((! nose[11..11]) # sel[3..3]), (! nose[10..10]), (! nose[9..9]), (! nose[8..8]), (! nose[7..7]), (! nose[6..6]), (! nose[5..5]), (! nose[4..4]), (! nose[3..3]), ((! nose[2..2]) # sel[2..2]), ((! nose[1..1]) # sel[1..1]), ((! nose[0..0]) # sel[0..0]));
+	StageIn[] = StageIn_tmp[];
+	StageIn_tmp[] = ( StageOut[43..0], B"0000");
+	StageOut[] = ( ((( StageIn[42..40], NumeratorIn[110..110]) & selnose[120..120]) # (prestg[43..40] & (! selnose[120..120]))), ((( StageIn[38..36], NumeratorIn[100..100]) & selnose[108..108]) # (prestg[39..36] & (! selnose[108..108]))), ((( StageIn[34..32], NumeratorIn[90..90]) & selnose[96..96]) # (prestg[35..32] & (! selnose[96..96]))), ((( StageIn[30..28], NumeratorIn[80..80]) & selnose[84..84]) # (prestg[31..28] & (! selnose[84..84]))), ((( StageIn[26..24], NumeratorIn[70..70]) & selnose[72..72]) # (prestg[27..24] & (! selnose[72..72]))), ((( StageIn[22..20], NumeratorIn[60..60]) & selnose[60..60]) # (prestg[23..20] & (! selnose[60..60]))), ((( StageIn[18..16], NumeratorIn[50..50]) & selnose[48..48]) # (prestg[19..16] & (! selnose[48..48]))), ((( StageIn[14..12], NumeratorIn[40..40]) & selnose[36..36]) # (prestg[15..12] & (! selnose[36..36]))), ((( StageIn[10..8], NumeratorIn[30..30]) & selnose[24..24]) # (prestg[11..8] & (! selnose[24..24]))), ((( StageIn[6..4], NumeratorIn[20..20]) & selnose[12..12]) # (prestg[7..4] & (! selnose[12..12]))), ((( StageIn[2..0], NumeratorIn[10..10]) & selnose[0..0]) # (prestg[3..0] & (! selnose[0..0]))));
+END;
+--VALID FILE

@@ -1,0 +1,4 @@
+Warning (10268): Verilog HDL information at digital_recognition.v(40): always construct contains both blocking and non-blocking assignments File: E:/quartus_prj/EXP_code/digital_rcognition/DE1_SoC_TV/dsp/digital_recognition.v Line: 40
+Warning (10268): Verilog HDL information at rectangle.v(25): always construct contains both blocking and non-blocking assignments File: E:/quartus_prj/EXP_code/digital_rcognition/DE1_SoC_TV/dsp/rectangle.v Line: 25
+Warning (10268): Verilog HDL information at freq_meters.v(17): always construct contains both blocking and non-blocking assignments File: E:/quartus_prj/EXP_code/digital_rcognition/DE1_SoC_TV/chunklib/freq_meters.v Line: 17
+Warning (10268): Verilog HDL information at shift_lineS.v(9): always construct contains both blocking and non-blocking assignments File: E:/quartus_prj/EXP_code/digital_rcognition/DE1_SoC_TV/dsp/median_filter/shift_lineS.v Line: 9

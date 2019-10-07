@@ -1,5 +1,4 @@
-# digital_rcognition
-[toc]
+# digital-rcognition
 
 ## Introduction
 This is the code which implements digital recognition based on FPGA.

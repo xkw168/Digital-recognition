@@ -18,5 +18,13 @@ DE1_SOC（Cyclone V FPGA + ARM Cortex-A9）
 4. result_image: the result of simulation and actual test
 5. simulation: the simulation code of each module of this project(include matlab  and modelsim simulation)
 
+## result
+
+<img src="./result_image/digital9_screen.JPG" alt="digital9screen" style="zoom:50%;" />
+
+<img src="./result_image/digital9_seg.JPG" alt="digital9seg" style="zoom:50%;" />
+
+
+
 ## Copyright
 Kewei Xia, TangBo Liu
